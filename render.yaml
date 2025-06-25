@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: node-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: node index.js
+    branch: main
+    autoDeploy: true
