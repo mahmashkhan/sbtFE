@@ -1,24 +1,29 @@
-import  { useEffect, useState } from 'react';
-import { Box, Typography, Container, CircularProgress } from '@mui/material';
+import { useEffect, useState } from 'react';
+import {
+  Box,
+  Typography,
+  Container,
+  CircularProgress,
+  Paper,
+} from '@mui/material';
 import Headers from '../../components/Headers';
 import { getAbout } from '../../../api/AboutApi';
 import Footer from '../../components/Footer';
 import AOS from 'aos';
-import {Helmet} from 'react-helmet'
+import { Helmet } from 'react-helmet';
 
 const About = () => {
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // Initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 1200, // Longer duration for smoother animations
-      easing: 'ease-in-out-cubic', // Advanced cubic-bezier easing for natural feel
-      once: true, // Animations happen only once on scroll
-      mirror: false, // No animation on scroll back
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
     });
   }, []);
+
   useEffect(() => {
     const fetchAbout = async () => {
       try {
@@ -36,27 +41,23 @@ const About = () => {
 
   return (
     <>
-    <Helmet>
-      <title>About</title>
-    </Helmet>
+      <Helmet><title>About</title></Helmet>
       <Headers />
-      <Box
-        sx={{
-          minHeight: '100vh',
-        }}
-      >
-        <Container maxWidth="md">
-          <Box textAlign="center" >
+
+      <Box sx={{ minHeight: '100vh', bgcolor: '#0f0f0f', color: '#fff', pt: 6, pb: 10 }}>
+        <Container >
+          {/* Heading (Unchanged) */}
+          <Box textAlign="center" marginBottom='20px'>
             <Typography
               variant="h4"
               sx={{
                 fontWeight: 'bold',
                 letterSpacing: 2,
                 textTransform: 'uppercase',
-                color: '#ffffff', // or a theme-based primary color
+                color: '#ffffff',
                 position: 'relative',
                 display: 'inline-block',
-                m:4,
+                
                 pb: 1,
                 '&::after': {
                   content: '""',
@@ -66,41 +67,51 @@ const About = () => {
                   transform: 'translateX(-50%)',
                   width: '60%',
                   height: '4px',
-                  backgroundColor: 'rgb(139, 18, 18)', 
+                  backgroundColor: 'rgb(139, 18, 18)',
                   borderRadius: 2,
+
                 },
               }}
             >
               About Us
             </Typography>
-
           </Box>
 
+          {/* Content Area */}
           {loading ? (
             <Box display="flex" justifyContent="center" mt={6}>
-              <CircularProgress color="primary" />
+              <CircularProgress sx={{ color: '#E53935' }} />
             </Box>
           ) : (
-
-            <Typography
-              variant="body1"
+            <Box
+              elevation={4}
               data-aos="fade-up"
-              data-aos-delay="100"
               sx={{
-                color: '#cfd8dc',
-                fontSize: '1.1rem',
+                background: 'rgb(0, 0, 0)',
+                padding: { xs: 3, sm: 5 },
+                border:'2px solid red',
+                borderRadius: 3,
+                color: '#fff',
                 lineHeight: 1.8,
-                textAlign: 'justify',
-
-                // fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                fontSize: { xs: '1rem', sm: '1.1rem' },
+                boxShadow: '0 0 8px 2px rgb(236, 67, 67)',
+                transition: '0.3s ease',
               }}
             >
-              {about}
-            </Typography>
 
+              <Typography variant="body1" textAlign="justify">
+                {about.split('\n\n').map((para, idx) => (
+                  <Typography key={idx} paragraph sx={{ mb: 2 }}>
+                    {para}
+                  </Typography>
+                ))}
+              </Typography>
+
+            </Box>
           )}
         </Container>
       </Box>
+
       <Footer />
     </>
   );

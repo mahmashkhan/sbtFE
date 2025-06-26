@@ -138,9 +138,9 @@ export default function GetTeam() {
                                 sx={{
                                     width: '100%',
                                     height: '100%',
-                                    mb: 4,
+                                    // mb: 2,
                                     objectFit: 'cover',
-                                   
+
                                     overflow: 'hidden',
                                     display: 'flex',
                                     flexDirection: 'column',
@@ -167,12 +167,12 @@ export default function GetTeam() {
                                             height: '100%',
                                             objectFit: {
                                                 xs: 'cover',
-                                                md: 'contain',  
+                                                md: 'contain',
                                             },
-                                            backgroundColor: '#000', 
+                                            backgroundColor: '#000',
                                             display: 'block',
-                                            
-                                            
+
+
                                         }}
                                     />
 

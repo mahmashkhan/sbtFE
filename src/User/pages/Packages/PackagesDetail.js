@@ -72,12 +72,17 @@ export default function PackagesDetail() {
     <>
       <Helmet><title>{name} Packages</title></Helmet>
       <Headers />
-      <Box sx={{
-        px: { xs: 2, sm: 4, md: 6 },
-        minHeight: '100vh',
-        bgcolor: '#000',
-        color: '#fff'
-      }}>
+      <Box
+        sx={{
+          px: { xs: 2, sm: 4, md: 6 },
+          py: 4,
+          minHeight: '100vh',
+          bgcolor: '#000',
+          color: '#fff',
+          width: '100%',
+          overflowX: 'hidden',
+        }}
+      >
         <Box textAlign="center">
           <Typography
             variant="h4"
@@ -91,6 +96,13 @@ export default function PackagesDetail() {
               mt: 4,
               mb: 8,
               pb: 1,
+              fontSize: {
+                xs: '1.4rem',
+                sm: '1.8rem',
+                md: '2.4rem',
+                lg: '3rem',
+              },
+              px: { xs: 1, sm: 0 },
               '&::after': {
                 content: '""',
                 position: 'absolute',
@@ -104,7 +116,7 @@ export default function PackagesDetail() {
               },
             }}
           >
-            {name}
+            {name} 
           </Typography>
         </Box>
 
@@ -126,7 +138,7 @@ export default function PackagesDetail() {
                 elevation={8}
                 sx={{
                   width: {
-                    xs: '100%',
+                    xs: 280,
                     sm: 320,
                     md: 400,
                   },

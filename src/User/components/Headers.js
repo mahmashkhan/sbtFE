@@ -18,6 +18,7 @@ import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
+import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -55,6 +56,7 @@ export default function Navbar() {
   const NAV_MENU = [
     { name: "Our Work", icon: WorkOutlineIcon, href: "/portfolio" },
     { name: "Packages", icon: InventoryIcon, href: "/packages" },
+    { name: "Services", icon: DesignServicesIcon, href: "/services" },
     { name: "About", icon: InfoOutlinedIcon, href: "/about" },
     { name: "Contact", icon: ContactMailOutlinedIcon, href: "/contact" },
     { name: "Our Team", icon: GroupOutlinedIcon, href: "/team" },
@@ -120,7 +122,7 @@ export default function Navbar() {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  color: "white",
+                  color: "rgb(255, 255, 255)",
                   textDecoration: "none",
                   gap: 1,
                   fontWeight: 500,

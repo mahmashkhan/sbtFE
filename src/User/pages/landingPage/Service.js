@@ -50,6 +50,12 @@ const Services = () => {
                 variant="h4"
                 sx={{
                   fontWeight: 'bold',
+                  fontSize: {
+                    xs: '1.4rem',
+                    sm: '1.8rem',
+                    md: '2.4rem',
+                    lg: '3rem',
+                  },
                   letterSpacing: 2,
                   textTransform: 'uppercase',
                   position: 'relative',
@@ -98,8 +104,8 @@ const Services = () => {
           </Grid>
         </Grid>
 
-       
-        <Grid container spacing={4}  justifyContent="center">
+
+        <Grid container spacing={4} justifyContent="center">
           {services.map((service, index) => (
             <Grid
               key={index}

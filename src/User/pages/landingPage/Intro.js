@@ -98,6 +98,12 @@ const ServicesSection = () => {
           variant="h4"
           sx={{
             fontWeight: 'bold',
+            fontSize: {
+                xs: '1.4rem',
+                sm: '1.8rem',
+                md: '2.4rem',
+                lg: '3rem',
+              },
             mt: 4,
             letterSpacing: 2,
             textTransform: 'uppercase',

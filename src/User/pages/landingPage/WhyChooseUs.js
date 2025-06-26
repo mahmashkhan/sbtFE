@@ -64,11 +64,12 @@ const WhyChooseUs = () => {
           variant="h3"
           fontWeight="bold"
           sx={{
-            fontSize: {
-              xs: '1.8rem',
-              sm: '2.4rem',
-              md: '3rem',
-            },
+           fontSize: {
+                xs: '1.4rem',
+                sm: '1.8rem',
+                md: '2.4rem',
+                lg: '3rem',
+              },
             mt: 1,
           }}
         >

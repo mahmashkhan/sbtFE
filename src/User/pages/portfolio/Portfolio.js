@@ -39,7 +39,7 @@ export default function Portfolio() {
             fontWeight: 'bold',
             letterSpacing: 2,
             textTransform: 'uppercase',
-            color: '#ffffff', // or a theme-based primary color
+            color: '#ffffff', 
             position: 'relative',
             display: 'inline-block',
             pb: 1,
@@ -51,7 +51,7 @@ export default function Portfolio() {
               transform: 'translateX(-50%)',
               width: '60%',
               height: '4px',
-              backgroundColor: 'rgb(139, 18, 18)', // Blue underline (or brand color)
+              backgroundColor: 'rgb(139, 18, 18)', 
               borderRadius: 2,
             },
           }}

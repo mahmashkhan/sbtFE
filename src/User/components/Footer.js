@@ -26,11 +26,12 @@ const Footer = () => {
         color: 'white',
         position: 'relative',
         overflow: 'hidden',
-        pt: 8,
-        pb: 4,
+        pt: { xs: 6, sm: 8 },
+        pb: { xs: 4, sm: 6 },
+        px: { xs: 2, sm: 4 },
       }}
     >
-      {/* Circle Backgrounds */}
+      {/* Decorative Circles */}
       <Box
         sx={{
           position: 'absolute',
@@ -57,13 +58,13 @@ const Footer = () => {
       />
 
       <Container sx={{ position: 'relative', zIndex: 1 }}>
-        <Grid container spacing={4}>
-          {/* Logo & Social */}
+        <Grid container spacing={6}>
+          {/* Brand */}
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
               SBT
             </Typography>
-            <Typography variant="body2" sx={{ mb: 2 }}>
+            <Typography variant="body2" sx={{ mb: 2, color: '#e0e0e0' }}>
               We create digital experiences for brands and companies by using technology.
             </Typography>
             <Stack direction="row" spacing={1}>
@@ -74,7 +75,7 @@ const Footer = () => {
             </Stack>
           </Grid>
 
-          {/* Company Links */}
+          {/* Links */}
           <Grid item xs={6} sm={6} md={2}>
             <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mb: 2 }}>
               Company
@@ -93,10 +94,9 @@ const Footer = () => {
                 </Link>
               </Typography>
             ))}
-
           </Grid>
 
-          {/* Subscribe Section */}
+          {/* Subscribe */}
           <Grid item xs={12} md={7}>
             <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
               Subscribe to our newsletter
@@ -104,19 +104,20 @@ const Footer = () => {
             <Stack
               direction={isSmall ? "column" : "row"}
               spacing={2}
-              flexWrap="wrap"
-              alignItems="center"
+              alignItems={isSmall ? "stretch" : "center"}
             >
-              <Box component="input"
+              <Box
+                component="input"
                 type="email"
                 placeholder="Enter your email"
                 sx={{
                   p: 1.5,
                   borderRadius: 1,
                   border: '1px solid #ccc',
-                  minWidth: 200,
                   flexGrow: 1,
                   width: isSmall ? '100%' : 'auto',
+                  backgroundColor: '#fff',
+                  color: '#000',
                 }}
               />
               <Box
@@ -142,37 +143,49 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        {/* Footer Bottom */}
+        {/* Bottom Bar */}
         <Box
-          mt={4}
+          mt={6}
           display="flex"
           justifyContent="space-between"
           flexDirection={isSmall ? "column" : "row"}
           alignItems="center"
           gap={2}
-          sx={{ borderTop: '1px solid #334155', pt: 2 }}
+          sx={{
+            borderTop: '1px solid #334155',
+            pt: 3,
+          }}
         >
-          <Typography sx={{ color: 'white' }} variant="body1">
+          <Typography variant="body2" sx={{ color: '#ffbdbd' }}>
             Developed By:{' '}
             <a
               href="https://www.linkedin.com/in/mehmash-khan-909a42251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#90caf9', textDecoration: 'none', fontWeight: 'bold' }}
+              style={{
+                color: '#fff',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+              }}
             >
               Mehmash Khan
             </a>
           </Typography>
 
           <Stack direction="row" spacing={2} flexWrap="wrap" justifyContent="center">
-            {['Privacy policy', 'Legal notice', 'Terms of service'].map((link, idx) => (
-              <Typography variant="body2" key={idx}>
-                <Link href="#" color="inherit" underline="hover">
-                  {link}
-                </Link>
-              </Typography>
-            ))}
-          </Stack>
+  {[
+    { label: 'Privacy Policy', path: '/privacy-policy' },
+    { label: 'Legal Notice', path: '/legal-notice' },
+    { label: 'Terms of Service', path: '/terms-of-service' },
+  ].map(({ label, path }, idx) => (
+    <Typography variant="body2" key={idx} sx={{ color: '#e0e0e0' }}>
+      <Link href={path} color="inherit" underline="hover">
+        {label}
+      </Link>
+    </Typography>
+  ))}
+</Stack>
+
         </Box>
       </Container>
     </Box>

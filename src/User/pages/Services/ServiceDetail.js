@@ -94,13 +94,19 @@ const Services = () => {
         <>
             <Helmet><title>Services</title></Helmet>
             <Headers />
-            <Box sx={{ mb:2, minHeight: "100vh" }}>
+            <Box sx={{ mb: 2, minHeight: "100vh" }}>
                 <Container>
                     <Box textAlign="center" >
                         <Typography
                             variant="h4"
                             sx={{
                                 fontWeight: 'bold',
+                                fontSize: {
+                                    xs: '1.4rem',
+                                    sm: '1.8rem',
+                                    md: '2.4rem',
+                                    lg: '3rem',
+                                },
                                 letterSpacing: 2,
                                 textTransform: 'uppercase',
                                 color: '#ffffff', // or a theme-based primary color
@@ -128,7 +134,7 @@ const Services = () => {
                     <Typography
                         align="center"
 
-                        sx={{ mb: 3 ,fontWeight:'bold'}}
+                        sx={{ mb: 3, fontWeight: 'bold' }}
                     >
                         (What We Offer!)
                     </Typography>

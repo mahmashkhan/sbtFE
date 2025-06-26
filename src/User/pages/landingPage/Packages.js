@@ -34,6 +34,12 @@ export default function Packages() {
               variant="h4"
               sx={{
                 fontWeight: 'bold',
+                fontSize: {
+                  xs: '1.4rem',
+                  sm: '1.8rem',
+                  md: '2.4rem',
+                  lg: '3rem',
+                },
                 letterSpacing: 2,
                 textTransform: 'uppercase',
                 color: '#ffffff',
@@ -63,7 +69,7 @@ export default function Packages() {
             <Typography
               variant="subtitle2"
               sx={{
-                mt: 3,
+                mt: 2,
                 color: 'grey.400',
                 maxWidth: 600,
                 mx: 'auto',
@@ -134,7 +140,12 @@ export default function Packages() {
                   variant="h5"
                   sx={{
                     fontWeight: 700,
-                    fontSize: '1.5rem',
+                    fontSize: {
+                      xs: '1.4rem',
+                      sm: '1.8rem',
+                      md: '1.5rem',
+                      lg: '1.5rem',
+                    },
                     color: '#fff',
                     mb: 1.5,
                     lineHeight: 1.2,

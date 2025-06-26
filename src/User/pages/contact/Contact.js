@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import Headers from '../../components/Headers'
 import Footer from '../../components/Footer';
-import { contact } from '../../../api/ContactApi'; // Adjust the import path as necessary
+import { contact } from '../../../api/ContactApi'; 
 import ContactModal from './ContactModal';
 
 
 function ContactMe() {
-  const [open,setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,7 +24,7 @@ function ContactMe() {
 
     try {
       const result = await contact(formData);
-      
+
       setOpen(true)
       setFormData({ name: '', email: '', message: '' });
       console.log('Response:', result);
@@ -36,35 +36,41 @@ function ContactMe() {
 
   return (
     <>
-    
+
       <Headers />
-       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', m:3 }}>
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 'bold',
-              letterSpacing: 2,
-              textTransform: 'uppercase',
-              color: '#ffffff', // or a theme-based primary color
-              position: 'relative',
-              display: 'inline-block',
-              pb: 1,
-              '&::after': {
-                content: '""',
-                position: 'absolute',
-                bottom: 0,
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '60%',
-                height: '4px',
-                backgroundColor: 'rgb(139, 18, 18) ', // Blue underline (or brand color)
-                borderRadius: 2,
-              },
-            }}
-          >
-            Contact
-          </Typography>
-        </Box>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', m: 3 }}>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 'bold',
+            letterSpacing: 2,
+            fontSize: {
+              xs: '1.4rem',
+              sm: '1.8rem',
+              md: '2.4rem',
+              lg: '3rem',
+            },
+            textTransform: 'uppercase',
+            color: '#ffffff', // or a theme-based primary color
+            position: 'relative',
+            display: 'inline-block',
+            pb: 1,
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: 0,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60%',
+              height: '4px',
+              backgroundColor: 'rgb(139, 18, 18) ', // Blue underline (or brand color)
+              borderRadius: 2,
+            },
+          }}
+        >
+          Contact
+        </Typography>
+      </Box>
       <Box
         sx={{
           maxWidth: 900,
@@ -76,7 +82,7 @@ function ContactMe() {
           color: '#333',
         }}
       >
-       
+
 
 
         <Box
@@ -158,7 +164,7 @@ function ContactMe() {
         </Box>
       </Box>
       <Footer />
-      <ContactModal open={open} setOpen={setOpen}/>
+      <ContactModal open={open} setOpen={setOpen} />
     </>
   );
 }
