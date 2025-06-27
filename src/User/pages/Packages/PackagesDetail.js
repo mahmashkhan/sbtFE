@@ -101,6 +101,7 @@ export default function PackagesDetail() {
                 sm: '1.8rem',
                 md: '2.4rem',
                 lg: '3rem',
+                
               },
               px: { xs: 1, sm: 0 },
               '&::after': {
