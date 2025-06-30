@@ -4,7 +4,7 @@ import {
   Typography,
   Container,
   CircularProgress,
-  Paper,
+  
 } from '@mui/material';
 import Headers from '../../components/Headers';
 import { getAbout } from '../../../api/AboutApi';
@@ -14,6 +14,8 @@ import { Helmet } from 'react-helmet';
 
 const About = () => {
   const [about, setAbout] = useState('');
+  const [para2, setPara2] = useState('');
+  const [para3, setPara3] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,7 +30,9 @@ const About = () => {
     const fetchAbout = async () => {
       try {
         const response = await getAbout();
-        setAbout(response.data.about);
+        setAbout(response.data.para1);
+        setPara2(response.data.para2);
+        setPara3(response.data.para3);
       } catch (error) {
         console.error('Error fetching about content:', error);
       } finally {
@@ -57,7 +61,7 @@ const About = () => {
                 color: '#ffffff',
                 position: 'relative',
                 display: 'inline-block',
-                
+
                 pb: 1,
                 '&::after': {
                   content: '""',
@@ -89,7 +93,7 @@ const About = () => {
               sx={{
                 background: 'rgb(0, 0, 0)',
                 padding: { xs: 3, sm: 5 },
-                border:'2px solid red',
+                border: '2px solid red',
                 borderRadius: 3,
                 color: '#fff',
                 lineHeight: 1.8,
@@ -98,23 +102,23 @@ const About = () => {
                 transition: '0.3s ease',
               }}
             >
-
-              <Typography variant="body1" textAlign="justify">
-                {about.split('\n\n').map((para, idx) => (
-                  <Typography key={idx} paragraph sx={{ mb: 2 }}>
-                    {para}
-                  </Typography>
-                ))}
-              </Typography>
-
+              <Box>
+                <Typography variant="body1" textAlign="justify" paragraph sx={{ mb: 2 }}>
+                  {about}
+                </Typography>
+                <Typography variant="body1" textAlign="justify" paragraph sx={{ mb: 2 }}>
+                  {para2}
+                </Typography>
+                <Typography variant="body1" textAlign="justify" paragraph sx={{ mb: 2 }}>
+                  {para3}
+                </Typography>
+              </Box>
             </Box>
           )}
         </Container>
       </Box>
-
       <Footer />
     </>
   );
 };
-
 export default About;

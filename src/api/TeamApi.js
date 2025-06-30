@@ -1,6 +1,7 @@
 
 const apiUrl = process.env.REACT_APP_API_URL;
 export const getTeam = async () => {
+    console.log("apiUrl---", apiUrl);
     try {
         const response = await fetch(`${apiUrl}/api/get/team`);
         if (!response.ok) {

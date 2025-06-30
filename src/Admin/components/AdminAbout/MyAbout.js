@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import {
   Box,
   Typography,
- 
   Container,
   CircularProgress,
   Button,
@@ -19,17 +18,29 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const About = () => {
-  const [about, setAbout] = useState('');
+  const [about, setAbout] = useState({ para1: '', para2: '', para3: '' });
   const [open, setOpen] = useState(false);
   const [Id, setId] = useState('');
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  const typographyStyle = {
+    color: 'text.primary',
+    fontSize: '1.1rem',
+    lineHeight: 1.8,
+    textAlign: 'justify',
+    mb: 2,
+  };
+
   useEffect(() => {
     const fetchAbout = async () => {
       try {
         const response = await getAbout();
-        setAbout(response.data.about);
+        setAbout({
+          para1: response.data.para1 || '',
+          para2: response.data.para2 || '',
+          para3: response.data.para3 || '',
+        });
         setId(response.data._id);
       } catch (error) {
         console.error('Error fetching about content:', error);
@@ -44,7 +55,7 @@ const About = () => {
   const deleteAbout = async () => {
     try {
       await AboutDelete(Id);
-      setAbout('');
+      setAbout({ para1: '', para2: '', para3: '' });
       setId('');
       setOpen(false);
     } catch (error) {
@@ -60,14 +71,12 @@ const About = () => {
   return (
     <>
       <AdminLayout>
-        
         <Box sx={{ minHeight: '100vh' }}>
           <Container maxWidth="md">
-            <Box textAlign="center" mb={4 } mt={4}>
-              <Typography variant="h4" fontWeight="bold" >
+            <Box textAlign="center" mb={4} mt={4}>
+              <Typography variant="h4" fontWeight="bold">
                 About Us
               </Typography>
-              
             </Box>
 
             {loading ? (
@@ -76,18 +85,16 @@ const About = () => {
               </Box>
             ) : (
               <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-                {about ? (
+                {about.para1 || about.para2 || about.para3 ? (
                   <>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: 'text.primary',
-                        fontSize: '1.1rem',
-                        lineHeight: 1.8,
-                        textAlign: 'justify',
-                      }}
-                    >
-                      {about}
+                    <Typography variant="body1" sx={typographyStyle}>
+                      {about.para1}
+                    </Typography>
+                    <Typography variant="body1" sx={typographyStyle}>
+                      {about.para2}
+                    </Typography>
+                    <Typography variant="body1" sx={typographyStyle}>
+                      {about.para3}
                     </Typography>
 
                     <Stack direction="row" spacing={2} justifyContent="flex-end" mt={4}>
@@ -129,6 +136,7 @@ const About = () => {
           </Container>
         </Box>
       </AdminLayout>
+
       <ModalLayout open={open} setOpen={setOpen} onDelete={deleteAbout} />
     </>
   );
