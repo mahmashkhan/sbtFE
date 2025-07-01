@@ -91,14 +91,13 @@ const About = () => {
               elevation={4}
               data-aos="fade-up"
               sx={{
-                background: 'rgb(0, 0, 0)',
+                background: 'rgba(0, 0, 0, 0.24)',
                 padding: { xs: 3, sm: 5 },
-                border: '2px solid red',
                 borderRadius: 3,
                 color: '#fff',
                 lineHeight: 1.8,
                 fontSize: { xs: '1rem', sm: '1.1rem' },
-                boxShadow: '0 0 8px 2px rgb(236, 67, 67)',
+                
                 transition: '0.3s ease',
               }}
             >
